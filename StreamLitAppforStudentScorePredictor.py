@@ -3,8 +3,12 @@ import numpy as np
 import pickle  # for loading your saved model
 
 # Load trained model (use joblib or pickle after training)
-model = pickle.load(open("student_model.pkl", "rb"))
+#model = pickle.load(open("student_model.pkl", "rb"))
+model_path = os.path.join(os.path.dirname(__file__), "student_model.pkl")
 
+with open(model_path, "rb") as file:
+    model = pickle.load(file)
+ 
 st.title("📚 Final Grade Predictor")
 st.subheader("Enter student info below:")
 
